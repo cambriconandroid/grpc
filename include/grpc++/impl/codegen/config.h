@@ -34,6 +34,17 @@
 #ifndef GRPCXX_IMPL_CODEGEN_CONFIG_H
 #define GRPCXX_IMPL_CODEGEN_CONFIG_H
 
+#include <string>
+#include <sstream>
+namespace std {
+    template <typename T>
+    string to_string(T x) {
+        ostringstream os;
+        os << x;
+        return os.str();
+    }
+}
+
 #if !defined(GRPC_NO_AUTODETECT_PLATFORM)
 
 #ifdef _MSC_VER
